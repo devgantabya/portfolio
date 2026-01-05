@@ -38,7 +38,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="dark:bg-gray-800 py-16">
+    <section id="contact" className="bg-gray-50 dark:bg-gray-900 py-16">
       <div className="md:py-16 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white">
           Contact Me
@@ -51,7 +51,7 @@ const Contact = () => {
         {/* Two-column layout */}
         <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
           {/* Left: Contact Info Card */}
-          <div className="md:w-1/3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-xl shadow-md p-6 flex flex-col gap-6">
+          <div className="md:w-1/3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-xl shadow-md p-6 flex flex-col gap-6">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
               Contact Info
             </h3>
@@ -91,7 +91,7 @@ const Contact = () => {
           </div>
 
           {/* Right: Contact Form Card */}
-          <div className="md:w-2/3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-xl shadow-md p-6 md:p-8">
+          <div className="md:w-2/3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-xl shadow-md p-6 md:p-8">
             <form ref={form} onSubmit={sendEmail} className="space-y-6">
               {/* Name */}
               <div>

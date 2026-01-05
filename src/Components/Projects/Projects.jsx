@@ -85,7 +85,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="bg-gray-50 dark:bg-gray-900 py-16">
+    <section id="projects" className="dark:bg-gray-800 py-16">
       {/* Heading */}
       <div className="md:py-16 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white">
