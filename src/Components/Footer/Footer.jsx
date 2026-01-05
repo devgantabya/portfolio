@@ -1,49 +1,43 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 py-10 bg-gray-100 dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700">
+    <footer className="bg-gray-50 dark:bg-gray-900 dark:text-white py-8 border-t border-gray-300 dark:border-gray-700">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Brand */}
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 text-center md:text-left">
-          Gantabya
-        </h2>
-
-        {/* Social Icons */}
-        <div className="flex justify-center md:justify-start gap-6 text-gray-600 dark:text-gray-300">
-          <a
-            href="https://github.com/"
-            target="_blank"
-            className="hover:text-blue-500 dark:hover:text-blue-400 text-3xl transition transform hover:scale-110"
-            aria-label="GitHub"
-          >
-            <FaGithub />
-          </a>
-
-          <a
-            href="https://linkedin.com/"
-            target="_blank"
-            className="hover:text-blue-500 dark:hover:text-blue-400 text-3xl transition transform hover:scale-110"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin />
-          </a>
-
-          <a
-            href="https://facebook.com/"
-            target="_blank"
-            className="hover:text-blue-500 dark:hover:text-blue-400 text-3xl transition transform hover:scale-110"
-            aria-label="Facebook"
-          >
-            <FaFacebook />
-          </a>
+        {/* Left: Copyright */}
+        <div className="text-center md:text-left text-sm md:text-base">
+          © {new Date().getFullYear()} All rights reserved by{" "}
+          <span className="font-semibold">Gantabya</span>
         </div>
 
-        {/* Copyright */}
-        <p className="mt-4 md:mt-0 text-sm text-gray-600 dark:text-gray-400 text-center md:text-right">
-          © {new Date().getFullYear()} Gantabya. All rights reserved.
-        </p>
+        {/* Right: Social Icons */}
+        <div className="flex gap-6 justify-center md:justify-end">
+          {/* Twitter */}
+          <a
+            href="https://github.com/devgantabya"
+            target="_blank"
+            className="hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            <FaGithub size={24} />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/devgantabya/"
+            target="_blank"
+            className="hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            <FaLinkedin size={24} />
+          </a>
+
+          <a
+            href="https://www.facebook.com/devgantabya"
+            target="_blank"
+            className="hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            <FaFacebookF size={24} />
+          </a>
+        </div>
       </div>
     </footer>
   );

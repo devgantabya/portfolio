@@ -22,8 +22,8 @@ const skills = [
 
 const About = () => {
   return (
-    <section id="about" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+    <section id="about" className="py-16 bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-6xl mx-auto md:py-16 px-4 grid md:grid-cols-2 gap-8 items-center">
         {/* Image Section */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
