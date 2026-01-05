@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import AboutMe from "../../assets/About-me.png";
+import { Link } from "react-router";
 
 /* Primary color control */
 const PRIMARY_TEXT = "text-blue-600 dark:text-blue-400";
@@ -104,8 +105,8 @@ const About = () => {
 
           {/* Button */}
           <div className="mt-8">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className={`
                 inline-block px-6 py-3 rounded-lg
                 text-white font-medium
@@ -115,8 +116,8 @@ const About = () => {
                 active:scale-95
               `}
             >
-              Contact Me
-            </a>
+              Let's Talk
+            </Link>
           </div>
         </motion.div>
       </div>

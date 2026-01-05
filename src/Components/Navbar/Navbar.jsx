@@ -87,7 +87,7 @@ const Navbar = () => {
               active:scale-95
             "
           >
-            Hire Me
+            Let's Talk
           </NavLink>
         </div>
 

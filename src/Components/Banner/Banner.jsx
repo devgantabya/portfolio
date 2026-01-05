@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import myImage from "../../assets/Profile.png";
+import { Link } from "react-router";
 
 /* 🔵 Change color here if needed */
 const PRIMARY_TEXT = "text-blue-600 dark:text-blue-400";
@@ -80,8 +81,8 @@ const Banner = () => {
 
         {/* Buttons */}
         <div className="mt-7 flex gap-4 flex-wrap">
-          <a
-            href="#contact"
+          <Link
+            to="/projects"
             className={`
               px-6 py-3 rounded-lg
               text-white font-medium
@@ -92,7 +93,7 @@ const Banner = () => {
             `}
           >
             View Projects
-          </a>
+          </Link>
 
           <a
             href="https://drive.google.com/file/d/1ZlT3IJfEpbgIlfNpbu5uUP4EPmv4RA39/view?usp=sharing"
@@ -105,6 +106,7 @@ const Banner = () => {
               transition-all duration-200
               hover:scale-[1.03]
               active:scale-95
+              font-bold
             `}
           >
             Resume
