@@ -19,7 +19,7 @@ const Contact = () => {
         "service_r5so42h",
         "template_v77csrd",
         form.current,
-        "b3KakpHFn61erU9C0"
+        "b3KakpHFn61erU9C0",
       )
       .then(
         () => {
@@ -33,7 +33,7 @@ const Contact = () => {
             message: "Something went wrong. Please try again.",
           });
           setTimeout(() => setStatus(null), 5000);
-        }
+        },
       );
   };
 
@@ -102,7 +102,7 @@ const Contact = () => {
                   type="text"
                   name="from_name"
                   required
-                  placeholder="Enter your name"
+                  placeholder="Jone Doe"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 
                   bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200 
                   focus:ring-2 focus:ring-blue-600 outline-none"
@@ -118,7 +118,7 @@ const Contact = () => {
                   type="email"
                   name="from_email"
                   required
-                  placeholder="Enter your email"
+                  placeholder="example@gmail.com"
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 
                   bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200 
                   focus:ring-2 focus:ring-blue-600 outline-none"
