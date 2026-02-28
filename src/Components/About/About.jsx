@@ -1,123 +1,128 @@
 import React from "react";
 import { motion } from "framer-motion";
 import AboutMe from "../../assets/About-me.png";
-import { Link } from "react-router";
-
-/* Primary color control */
-const PRIMARY_TEXT = "text-blue-600 dark:text-blue-400";
-const PRIMARY_BG = "bg-blue-600 hover:bg-blue-700";
-const PRIMARY_BORDER = "border-blue-500/30";
 
 const skills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
   "React",
-  "Vue",
-  "Laravel",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "Next.js",
   "Tailwind",
-  "WordPress",
+  "JavaScript",
   "Git",
+  "Framer Motion",
 ];
 
 const About = () => {
   return (
-    <section id="about" className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto md:py-16 px-4 grid md:grid-cols-2 gap-8 items-center">
-        {/* Image Section */}
+    <section id="about" className="py-24 bg-[#050505] relative overflow-hidden">
+      {/* Decorative background glow */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-amber-500/5 blur-[120px] rounded-full" />
+
+      <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+        {/* Image Section - Framed Style */}
         <motion.div
-          initial={{ opacity: 0, x: -60 }}
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative flex"
+          transition={{ duration: 0.8 }}
+          className="relative"
         >
-          {/* Glow */}
-          <div className="absolute inset-0 rounded-full bg-blue-500/20 dark:bg-blue-400/10 blur-3xl" />
+          {/* The "Frame" behind the image */}
+          <div className="absolute -bottom-6 -right-6 w-full h-full border border-amber-500/20 rounded-2xl -z-10 hidden md:block" />
 
-          <motion.img
-            src={AboutMe}
-            alt="About Gantabya"
-            className="relative w-full md:w-[480px] rounded-2xl shadow-2xl"
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            whileHover={{ scale: 1.05 }}
-          />
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-900 shadow-2xl">
+            <motion.img
+              src={AboutMe}
+              alt="Gantabya Profile"
+              className="w-full grayscale hover:grayscale-0 transition-all duration-700 object-cover"
+              whileHover={{ scale: 1.03 }}
+            />
+          </div>
+
+          {/* Experience Badge */}
+          <div className="absolute -bottom-4 -left-4 bg-[#0a0a0a] border border-white/10 p-5 rounded-xl shadow-2xl hidden md:block">
+            <p className="text-amber-500 text-3xl font-black leading-none">
+              1.5+
+            </p>
+            <p className="text-zinc-500 text-[10px] uppercase tracking-widest mt-1">
+              Years of
+              <br />
+              Experience
+            </p>
+          </div>
         </motion.div>
 
         {/* Text Section */}
         <motion.div
-          initial={{ opacity: 0, x: 60 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
         >
-          <span
-            className={`uppercase tracking-widest text-sm font-semibold ${PRIMARY_TEXT}`}
-          >
-            About Me
-          </span>
-
-          <h2 className="mt-2 text-4xl font-bold text-gray-900 dark:text-white">
-            Passionate Web Developer
-          </h2>
-
-          <p className="mt-5 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            Hi! I’m <span className="font-medium">Gantabya</span>, a passionate
-            full-stack web developer specializing in building modern, fast, and
-            scalable applications using
-            <span className="font-medium text-gray-800 dark:text-gray-200">
-              {" "}
-              Laravel, React, Vue, and WordPress
+          <div className="flex items-center gap-4 mb-4">
+            <span className="h-px w-8 bg-amber-500" />
+            <span className="uppercase tracking-[0.4em] text-[11px] font-bold text-amber-500">
+              Personal Info
             </span>
-            .
-          </p>
-
-          <p className="mt-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            I enjoy solving real-world problems, crafting clean UI, and turning
-            ideas into high-quality digital products.
-          </p>
-
-          {/* Skills */}
-          <div className="mt-6 flex flex-wrap gap-3">
-            {skills.map((skill, index) => (
-              <motion.span
-                key={index}
-                whileHover={{ scale: 1.08 }}
-                className={`
-                  px-4 py-1.5 rounded-full
-                  text-sm font-medium
-                  border ${PRIMARY_BORDER}
-                  text-gray-800 dark:text-gray-200
-                  bg-white/60 dark:bg-gray-800/60
-                  backdrop-blur
-                  cursor-default
-                `}
-              >
-                {skill}
-              </motion.span>
-            ))}
           </div>
 
-          {/* Button */}
-          <div className="mt-8">
-            <Link
-              to="/contact"
-              className={`
-                inline-block px-6 py-3 rounded-lg
-                text-white font-medium
-                ${PRIMARY_BG}
-                transition-all duration-200
-                hover:scale-[1.04]
-                active:scale-95
-              `}
+          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            Engineering Digital <br />
+            <span className="text-zinc-500 italic font-serif">Solutions.</span>
+          </h2>
+
+          <div className="mt-8 space-y-6 text-zinc-400 text-lg font-light leading-relaxed">
+            <p>
+              I am <span className="text-white font-normal">Gantabya</span>, a
+              developer who bridges the gap between complex backend logic and
+              intuitive frontend design. My focus is on the
+              <span className="text-zinc-200"> MERN stack</span>, creating
+              high-performance tools that actually solve problems.
+            </p>
+            <p>
+              I don't just write code; I craft systems that are scalable,
+              maintainable, and visually striking.
+            </p>
+          </div>
+
+          {/* Skills Grid - Glassmorphism */}
+          <div className="mt-10">
+            <p className="text-white text-[10px] uppercase tracking-[0.3em] font-bold mb-6">
+              Technical Arsenal
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {skills.map((skill, index) => (
+                <motion.span
+                  key={index}
+                  whileHover={{
+                    y: -3,
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                  }}
+                  className="px-4 py-2 rounded-lg text-[12px] font-medium border border-white/5 bg-white/[0.02] text-zinc-300 backdrop-blur-sm transition-colors cursor-default"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-12 pt-8 border-t border-white/5">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+              className="text-white text-[11px] uppercase tracking-[0.3em] font-bold flex items-center gap-4 group"
             >
-              Let's Talk
-            </Link>
+              Start a Conversation
+              <span className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
+                →
+              </span>
+            </button>
           </div>
         </motion.div>
       </div>
