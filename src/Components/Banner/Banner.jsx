@@ -66,19 +66,29 @@ const Banner = () => {
           </motion.p>
 
           <div className="mt-10 flex gap-6 justify-center md:justify-start items-center">
-            <Link
-              to="/projects"
+            <a
+              href="/resume/Gantabya_Kumar_Bayda.pdf"
+              download="Gantabya_Kumar_Bayda.pdf"
               className="px-8 py-3.5 bg-amber-500 text-black text-[11px] font-black uppercase tracking-[0.2em] hover:bg-amber-400 transition-all shadow-lg shadow-amber-900/20"
             >
               Download Resume
-            </Link>
+            </a>
             <div className="flex gap-4">
-              {/* Social Icon Slots */}
               <div className="w-10 h-10 border border-zinc-800 rounded-lg flex items-center justify-center hover:bg-zinc-900 transition-colors cursor-pointer">
-                <span className="text-white text-xs font-bold">Git</span>
+                <a
+                  href="https://github.com/devgantabya"
+                  className="text-white text-xs font-bold"
+                >
+                  Git
+                </a>
               </div>
               <div className="w-10 h-10 border border-zinc-800 rounded-lg flex items-center justify-center hover:bg-zinc-900 transition-colors cursor-pointer">
-                <span className="text-white text-xs font-bold">In</span>
+                <a
+                  href="https://www.linkedin.com/in/devgantabya/"
+                  className="text-white text-xs font-bold"
+                >
+                  In
+                </a>
               </div>
             </div>
           </div>
