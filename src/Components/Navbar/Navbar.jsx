@@ -14,6 +14,8 @@ const Navbar = () => {
       { name: "Projects", id: "projects" },
       { name: "Education", id: "education" },
       { name: "Certificates", id: "certificates" },
+      { name: "Contributions", id: "github" },
+      { name: "Contact", id: "contact" },
     ],
     [],
   );
@@ -88,7 +90,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Nav - Auto Highlighting */}
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <li key={item.id}>
               <button
@@ -109,32 +111,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-
-        {/* Action Button */}
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="px-6 py-2 rounded-full bg-amber-500 text-black text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all active:scale-95 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
-          >
-            Hire Me
-          </button>
-
-          {/* Mobile Burger */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex flex-col gap-1 w-6 items-end"
-          >
-            <span
-              className={`h-[2px] bg-white transition-all ${isOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`}
-            />
-            <span
-              className={`h-[2px] bg-white transition-all ${isOpen ? "opacity-0" : "w-4"}`}
-            />
-            <span
-              className={`h-[2px] bg-white transition-all ${isOpen ? "w-6 -rotate-45 -translate-y-1.5" : "w-5"}`}
-            />
-          </button>
-        </div>
       </div>
 
       {/* Mobile Menu */}

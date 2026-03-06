@@ -6,6 +6,7 @@ import Projects from "./../../Components/Projects/Projects";
 import Contact from "./../../Components/Contact/Contact";
 import EducationalQualification from "../../Components/EducationalQualification/EducationalQualification";
 import MyCertificates from "../../Components/myCertificates/myCertificates";
+import GithubContributions from "../../Components/GithubContributions/GithubContributions";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Projects />
       <EducationalQualification />
       <MyCertificates />
+      <GithubContributions />
       <Contact />
     </div>
   );
