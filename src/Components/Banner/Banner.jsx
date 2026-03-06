@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import myImage from "../../assets/Profile.png";
-import { Link } from "react-router";
+import { FiDownload } from "react-icons/fi";
 
 const roles = [
   "Full-Stack Developer",
@@ -11,107 +11,138 @@ const roles = [
 
 const Banner = () => {
   const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(
-      () => setRoleIndex((prev) => (prev + 1) % roles.length),
-      3000,
-    );
-    return () => clearInterval(interval);
-  }, []);
+    const currentRole = roles[roleIndex];
+
+    if (charIndex < currentRole.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(currentRole.slice(0, charIndex + 1));
+        setCharIndex((prev) => prev + 1);
+      }, 80);
+
+      return () => clearTimeout(timeout);
+    } else {
+      const timeout = setTimeout(() => {
+        setCharIndex(0);
+        setDisplayText("");
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }, 1500);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [charIndex, roleIndex]);
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center bg-[#080808] overflow-hidden pt-20 pb-10"
+      className="relative py-10 flex items-center bg-[#070707] overflow-hidden"
     >
-      <div className="absolute top-[20%] right-[-5%] w-[35%] h-[35%] bg-amber-600/10 blur-[120px] rounded-full" />
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-10 w-full flex flex-col md:flex-row items-center justify-between z-10">
-        <div className="max-w-2xl text-center md:text-left order-2 md:order-1">
-          <motion.div
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full grid md:grid-cols-2 gap-16 items-center z-10">
+        {/* Left Content */}
+        <div className="text-center md:text-left">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-amber-500 text-xs tracking-[0.4em] uppercase font-semibold"
+          >
+            Welcome to my portfolio
+          </motion.span>
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight"
           >
-            <span className="text-amber-500/80 text-[10px] uppercase tracking-[0.5em] font-bold mb-4 block">
-              WELCOME TO MY PORTFOLIO
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
-              Hi, I'm <span className="text-amber-500">Gantabya</span>
-            </h1>
+            Hi, I'm <span className="text-amber-500">Gantabya</span>
+          </motion.h1>
 
-            <div className="h-12 mt-4 overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={roles[roleIndex]}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  className="text-xl md:text-3xl font-bold text-zinc-100 uppercase tracking-tighter"
-                >
-                  {roles[roleIndex]}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-          </motion.div>
+          <div className="mt-6 h-10">
+            <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-zinc-300 uppercase tracking-wide">
+              {displayText}
+            </p>
+          </div>
 
-          <motion.p className="mt-8 text-zinc-400 text-lg leading-relaxed max-w-lg font-light">
-            An aspiring{" "}
-            <span className="text-zinc-100 font-medium">
-              Full-Stack Developer
-            </span>{" "}
-            with a strong foundation in frontend development and a growing focus
-            on backend architecture.
-          </motion.p>
+          <p className="mt-8 text-zinc-400 text-base sm:text-lg max-w-xl leading-relaxed">
+            I build modern, responsive and scalable web applications using the
+            MERN stack with strong focus on clean UI and performance.
+          </p>
 
-          <div className="mt-10 flex gap-6 justify-center md:justify-start items-center">
+          <div className="mt-10 flex flex-wrap gap-5 justify-center md:justify-start">
             <a
               href="/resume/Gantabya_Kumar_Bayda.pdf"
-              download="Gantabya_Kumar_Bayda.pdf"
-              className="px-8 py-3.5 bg-amber-500 text-black text-[11px] font-black uppercase tracking-[0.2em] hover:bg-amber-400 transition-all shadow-lg shadow-amber-900/20"
+              download
+              className="flex items-center gap-2 px-7 py-3 bg-amber-500 text-black text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-amber-400  transition-all"
             >
-              Download Resume
+              Resume
+              <span>
+                <FiDownload size={18} />
+              </span>
             </a>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 border border-zinc-800 rounded-lg flex items-center justify-center hover:bg-zinc-900 transition-colors cursor-pointer">
-                <a
-                  href="https://github.com/devgantabya"
-                  className="text-white text-xs font-bold"
-                >
-                  Git
-                </a>
-              </div>
-              <div className="w-10 h-10 border border-zinc-800 rounded-lg flex items-center justify-center hover:bg-zinc-900 transition-colors cursor-pointer">
-                <a
-                  href="https://www.linkedin.com/in/devgantabya/"
-                  className="text-white text-xs font-bold"
-                >
-                  In
-                </a>
-              </div>
-            </div>
+
+            <a
+              href="https://github.com/devgantabya"
+              target="_blank"
+              rel="noreferrer"
+              className="px-7 py-3 border border-zinc-700 text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-zinc-900 transition-all"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/devgantabya/"
+              target="_blank"
+              rel="noreferrer"
+              className="px-7 py-3 border border-zinc-700 text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-zinc-900 transition-all"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 
+        {/* Right Image */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="relative order-1 md:order-2 mb-12 md:mb-0"
+          transition={{ duration: 0.8 }}
+          className="flex justify-center md:justify-end"
         >
-          <div className="relative w-[280px] h-[280px] md:w-[480px] md:h-[480px] rounded-full p-4 border-8 border-zinc-800/40">
-            <div className="w-full h-full rounded-full border border-amber-500/30 overflow-hidden shadow-[0_0_60px_rgba(245,158,11,0.15)] bg-zinc-900">
+          <div className="relative w-[210px] h-[210px] sm:w-[280px] sm:h-[280px] lg:w-[360px] lg:h-[360px] group">
+            {/* Soft glow background */}
+            <div className="absolute inset-0 rounded-full blur-3xl opacity-40 bg-gradient-to-r from-blue-500 via-purple-500 to-amber-400"></div>
+
+            {/* Rotating gradient ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 10,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+              className="absolute inset-0 rounded-full p-[4px]"
+            >
+              <div className="w-full h-full rounded-full bg-[conic-gradient(#3b82f6,#8b5cf6,#22c55e,#f59e0b,#ef4444,#3b82f6)]"></div>
+            </motion.div>
+
+            {/* Inner image container */}
+            <div className="absolute inset-[10px] rounded-full bg-[#070707] p-2 flex items-center justify-center shadow-2xl">
               <img
                 src={myImage}
                 alt="Gantabya"
-                className="w-full h-full object-cover brightness-90 hover:brightness-110 transition-all duration-700 scale-110 hover:scale-105"
+                className="w-full h-full object-cover rounded-full transition-transform duration-500"
               />
             </div>
 
-            <div className="absolute bottom-[10%] right-[-5%] bg-black/80 backdrop-blur-md border border-amber-500/50 px-4 py-2 rounded-xl shadow-2xl">
+            {/* Status Badge */}
+            <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md border border-amber-500/40 px-4 py-2 rounded-full">
               <span className="text-[10px] text-amber-500 font-bold uppercase tracking-widest">
-                Available for work
+                Available for Work
               </span>
             </div>
           </div>
