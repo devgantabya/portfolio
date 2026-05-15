@@ -5,6 +5,17 @@ import { FaGithub, FaExternalLinkAlt, FaLayerGroup } from "react-icons/fa";
 const projectList = [
   {
     id: 1,
+    name: "Tuitron",
+    category: "Full Stack",
+    tech: ["React.js", "Tailwind", "Firebase", "DaisyUI"],
+    image: "/projects/greennest-store-screenshot.png",
+    frontend: "https://github.com/devgantabya/tuitron-client.git",
+    backend: "https://github.com/devgantabya/tuitron-server.git",
+    live: "https://tutron-89ff4.web.app/",
+    description: "A tuition management platform for Students & Teachers.",
+  },
+  {
+    id: 2,
     name: "GreenNest Store",
     category: "Frontend",
     tech: ["React.js", "Tailwind", "Firebase", "DaisyUI"],
@@ -16,7 +27,7 @@ const projectList = [
       "A premium e-commerce experience for plant enthusiasts with seamless Firebase integration.",
   },
   {
-    id: 2,
+    id: 3,
     name: "ItemFlow Management",
     category: "Full Stack",
     tech: ["Next.js", "Node.js", "MongoDB", "JWT"],
@@ -28,7 +39,19 @@ const projectList = [
       "Enterprise-grade product tracking system featuring secure authentication and real-time CRUD.",
   },
   {
-    id: 3,
+    id: 4,
+    name: "Hero App Store",
+    category: "Frontend",
+    tech: ["React.js", "Recharts", "Node.js"],
+    image: "/projects/hero-app-screenshot.png",
+    frontend: "https://github.com/devgantabya/Hero-App-Store.git",
+    backend: "https://github.com/devgantabya/Hero-App-Store.git",
+    live: "https://my-hero-app-store.netlify.app/",
+    description:
+      "Data-driven dashboard with interactive charts and high-performance filtering.",
+  },
+  {
+    id: 5,
     name: "Hero App Store",
     category: "Frontend",
     tech: ["React.js", "Recharts", "Node.js"],

@@ -7,6 +7,7 @@ const roles = [
   "Full-Stack Developer",
   "Frontend Developer",
   "MERN Stack Specialist",
+  "WordPress Developer",
 ];
 
 const Banner = () => {
@@ -76,9 +77,9 @@ const Banner = () => {
 
           <div className="mt-10 flex flex-wrap gap-5 justify-center md:justify-start">
             <a
-              href="/resume/Gantabya_Kumar_Bayda.pdf"
+              href="/resume/Gantabya_Kumar_Bayda_Resume.pdf"
               download
-              className="flex items-center gap-2 px-7 py-3 bg-amber-500 text-black text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-amber-400  transition-all"
+              className="flex items-center gap-2 px-6 py-2 rounded-lg text-amber-500 hover:scale-105 transition font-semibold border border-amber-500 bg-black"
             >
               Resume
               <span>
@@ -90,7 +91,7 @@ const Banner = () => {
               href="https://github.com/devgantabya"
               target="_blank"
               rel="noreferrer"
-              className="px-7 py-3 border border-zinc-700 text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-zinc-900 transition-all"
+              className="px-7 py-2 flex items-center border border-zinc-700 text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-zinc-900 transition-all"
             >
               GitHub
             </a>
@@ -99,7 +100,7 @@ const Banner = () => {
               href="https://www.linkedin.com/in/devgantabya/"
               target="_blank"
               rel="noreferrer"
-              className="px-7 py-3 border border-zinc-700 text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-zinc-900 transition-all"
+              className="px-7 py-2 flex items-center border border-zinc-700 text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-zinc-900 transition-all"
             >
               LinkedIn
             </a>

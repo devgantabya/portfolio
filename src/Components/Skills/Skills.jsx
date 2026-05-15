@@ -6,13 +6,17 @@ const skills = [
   "CSS3",
   "Tailwind CSS",
   "JavaScript",
+  "TypeScript",
+  "PHP",
+  "SQL",
   "Next.js",
   "React.js",
   "Node.js",
   "Express.js",
+  "Zod",
+  "PostgreSQL",
   "MongoDB",
   "Laravel",
-  "PHP",
   "MySQL",
   "WordPress",
   "Git & GitHub",
@@ -90,7 +94,7 @@ const Skills = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
         >
           {skills.map((skill, index) => (
             <motion.div
@@ -129,7 +133,7 @@ const Skills = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
             </span>
             <span className="text-[10px] text-zinc-400 uppercase tracking-widest font-bold">
-              Currently exploring: Web3 & AI Integration
+              Currently exploring: Redux, Prisma & Redis
             </span>
           </div>
         </motion.div>

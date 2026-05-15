@@ -10,6 +10,8 @@ const skills = [
   "Next.js",
   "Tailwind",
   "JavaScript",
+  "TypeScript",
+  "SQL",
   "Git",
   "Framer Motion",
 ];
