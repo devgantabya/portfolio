@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import myImage from "../../assets/Profile.png";
+import myImage from "../../assets/profilee.png";
 import { FiDownload } from "react-icons/fi";
 
 const roles = [
