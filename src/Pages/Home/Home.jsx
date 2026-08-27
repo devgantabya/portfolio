@@ -1,6 +1,6 @@
-import React from "react";
 import Banner from "./../../Components/Banner/Banner";
 import About from "./../../Components/About/About";
+import Experience from "./../../Components/Experience/Experience";
 import Skills from "./../../Components/Skills/Skills";
 import Projects from "./../../Components/Projects/Projects";
 import Contact from "./../../Components/Contact/Contact";
@@ -13,6 +13,7 @@ const Home = () => {
     <div>
       <Banner />
       <About />
+      <Experience />
       <Skills />
       <Projects />
       <EducationalQualification />
