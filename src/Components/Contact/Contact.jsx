@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import {
@@ -51,37 +51,44 @@ const Contact = () => {
       id="contact"
       className="bg-[#030303] py-24 relative overflow-hidden"
     >
-      {/* Background radial glow */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Enhanced background effects */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 blur-[150px] rounded-full pointer-events-none animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-8 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        {/* Enhanced Header */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-4 mb-4">
-              <span className="h-px w-8 bg-amber-500" />
+            <div className="flex items-center gap-4 mb-6">
+              <span className="h-px w-12 bg-gradient-to-r from-amber-500 to-transparent" />
               <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-amber-500">
                 Contact
               </span>
             </div>
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
               LET'S START A{" "}
-              <span className="text-zinc-500 italic font-serif">PROJECT.</span>
+              <span className="text-gradient bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent italic font-serif">PROJECT.</span>
             </h2>
           </div>
 
-          <div className="flex items-center gap-3 px-4 py-2 rounded-full border border-emerald-500/20 bg-emerald-500/5">
-            <span className="relative flex h-2 w-2">
+          <motion.div 
+            className="glass-effect px-6 py-3 rounded-2xl flex items-center gap-3 border border-emerald-500/20"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+          >
+            <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
             </span>
             <span className="text-[10px] uppercase tracking-widest font-bold text-emerald-500">
               Available for hire
             </span>
-          </div>
+          </motion.div>
         </div>
 
         <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
-          {/* Left: Info Grid */}
+          {/* Enhanced Left: Info Grid */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -89,53 +96,64 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-white text-[11px] uppercase tracking-[0.3em] font-bold mb-6">
-                Details
+              <h3 className="text-white text-[11px] uppercase tracking-[0.3em] font-bold mb-8 flex items-center gap-3">
+                <span className="h-px w-6 bg-amber-500"></span>
+                Contact Details
               </h3>
               <div className="space-y-6">
-                <div className="flex items-center gap-4 group cursor-pointer">
-                  <div className="h-12 w-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
-                    <FaEnvelope size={18} />
+                <motion.div 
+                  className="flex items-center gap-4 group cursor-pointer"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="h-14 w-14 rounded-2xl glass-effect border border-white/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(245,158,11,0.4)]">
+                    <FaEnvelope size={20} />
                   </div>
                   <div>
-                    <p className="text-zinc-500 text-[9px] uppercase tracking-widest font-bold">
+                    <p className="text-zinc-500 text-[9px] uppercase tracking-widest font-bold mb-1">
                       Email
                     </p>
-                    <p className="text-zinc-200 text-sm">
+                    <p className="text-zinc-200 text-sm font-medium">
                       gantabyakumarbayda@gmail.com
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center gap-4 group cursor-pointer">
-                  <div className="h-12 w-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
-                    <FaWhatsapp size={18} />
+                <motion.div 
+                  className="flex items-center gap-4 group cursor-pointer"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="h-14 w-14 rounded-2xl glass-effect border border-white/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(245,158,11,0.4)]">
+                    <FaWhatsapp size={20} />
                   </div>
                   <div>
-                    <p className="text-zinc-500 text-[9px] uppercase tracking-widest font-bold">
+                    <p className="text-zinc-500 text-[9px] uppercase tracking-widest font-bold mb-1">
                       WhatsApp
                     </p>
-                    <p className="text-zinc-200 text-sm">+880 1405346891</p>
+                    <p className="text-zinc-200 text-sm font-medium">+880 1405346891</p>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center gap-4 group cursor-pointer">
-                  <div className="h-12 w-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
-                    <FaMapMarkerAlt size={18} />
+                <motion.div 
+                  className="flex items-center gap-4 group cursor-pointer"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="h-14 w-14 rounded-2xl glass-effect border border-white/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(245,158,11,0.4)]">
+                    <FaMapMarkerAlt size={20} />
                   </div>
                   <div>
-                    <p className="text-zinc-500 text-[9px] uppercase tracking-widest font-bold">
+                    <p className="text-zinc-500 text-[9px] uppercase tracking-widest font-bold mb-1">
                       Location
                     </p>
-                    <p className="text-zinc-200 text-sm">Khulna, Bangladesh</p>
+                    <p className="text-zinc-200 text-sm font-medium">Khulna, Bangladesh</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             <div className="pt-8 border-t border-white/5">
-              <h3 className="text-white text-[11px] uppercase tracking-[0.3em] font-bold mb-6">
-                Socials
+              <h3 className="text-white text-[11px] uppercase tracking-[0.3em] font-bold mb-6 flex items-center gap-3">
+                <span className="h-px w-6 bg-amber-500"></span>
+                Social Links
               </h3>
               <div className="flex gap-4">
                 {[
@@ -148,25 +166,28 @@ const Contact = () => {
                     link: "https://www.linkedin.com/in/devgantabya/",
                   },
                 ].map((social, i) => (
-                  <a
+                  <motion.a
                     key={i}
                     href={social.link}
                     target="_blank"
-                    className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:border-amber-500 hover:text-amber-500 transition-all"
+                    rel="noreferrer"
+                    className="h-12 w-12 rounded-2xl glass-effect border border-white/10 flex items-center justify-center text-zinc-400 hover:border-amber-500 hover:text-amber-500 hover:bg-amber-500/10 transition-all"
+                    whileHover={{ y: -5, scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {social.icon}
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* Right: Form */}
+          {/* Enhanced Right: Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm"
+            className="glass-effect border-2 border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm hover:border-amber-500/20 transition-all duration-500"
           >
             <form
               ref={form}
@@ -174,7 +195,8 @@ const Contact = () => {
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold ml-1">
+                <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold ml-1 flex items-center gap-2">
+                  <span className="h-px w-3 bg-amber-500"></span>
                   Name
                 </label>
                 <input
@@ -182,12 +204,13 @@ const Contact = () => {
                   name="from_name"
                   required
                   placeholder="Enter your name"
-                  className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white focus:border-amber-500 focus:outline-none transition-all placeholder:text-zinc-700"
+                  className="w-full px-6 py-4 rounded-2xl bg-white/5 border-2 border-white/10 text-white focus:border-amber-500 focus:outline-none transition-all placeholder:text-zinc-700 hover:border-white/20"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold ml-1">
+                <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold ml-1 flex items-center gap-2">
+                  <span className="h-px w-3 bg-amber-500"></span>
                   Email
                 </label>
                 <input
@@ -195,12 +218,13 @@ const Contact = () => {
                   name="from_email"
                   required
                   placeholder="example@gmail.com"
-                  className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white focus:border-amber-500 focus:outline-none transition-all placeholder:text-zinc-700"
+                  className="w-full px-6 py-4 rounded-2xl bg-white/5 border-2 border-white/10 text-white focus:border-amber-500 focus:outline-none transition-all placeholder:text-zinc-700 hover:border-white/20"
                 />
               </div>
 
               <div className="md:col-span-2 space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold ml-1">
+                <label className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold ml-1 flex items-center gap-2">
+                  <span className="h-px w-3 bg-amber-500"></span>
                   Message
                 </label>
                 <textarea
@@ -208,26 +232,33 @@ const Contact = () => {
                   name="message"
                   required
                   placeholder="How can I help you?"
-                  className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white focus:border-amber-500 focus:outline-none transition-all resize-none placeholder:text-zinc-700"
+                  className="w-full px-6 py-4 rounded-2xl bg-white/5 border-2 border-white/10 text-white focus:border-amber-500 focus:outline-none transition-all resize-none placeholder:text-zinc-700 hover:border-white/20"
                 ></textarea>
               </div>
 
               <div className="md:col-span-2 flex flex-col items-center gap-4 mt-4">
-                <button
+                <motion.button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 bg-amber-500 hover:bg-white text-black font-black uppercase tracking-[0.3em] text-xs rounded-xl transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-3"
+                  className="group w-full py-5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-black uppercase tracking-[0.3em] text-xs rounded-2xl transition-all disabled:opacity-50 flex items-center justify-center gap-3 hover:shadow-[0_0_40px_rgba(245,158,11,0.5)] overflow-hidden relative"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  {loading ? "Sending..." : "Send Discovery Message"}{" "}
-                  <FaPaperPlane />
-                </button>
+                  <span className="relative z-10">
+                    {loading ? "Sending..." : "Send Discovery Message"}
+                  </span>
+                  <FaPaperPlane className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                </motion.button>
 
                 {status && (
-                  <p
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     className={`text-[10px] font-bold uppercase tracking-widest ${status.type === "success" ? "text-emerald-500" : "text-red-500"}`}
                   >
                     {status.message}
-                  </p>
+                  </motion.p>
                 )}
               </div>
             </form>

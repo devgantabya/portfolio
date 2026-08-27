@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import myImage from "../../assets/profilee.png";
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiArrowRight } from "react-icons/fi";
 
 const roles = [
   "Full-Stack Developer",
@@ -39,86 +39,138 @@ const Banner = () => {
   return (
     <section
       id="home"
-      className="relative py-10 flex items-center bg-[#070707] overflow-hidden"
+      className="relative min-h-screen flex items-center bg-[#070707] overflow-hidden"
     >
+      {/* Enhanced background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent" />
+      <div className="absolute top-20 right-20 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-500/5 rounded-full blur-[100px]" />
+      
+      {/* Animated grid pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(rgba(245, 158, 11, 0.1) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(245, 158, 11, 0.1) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full grid md:grid-cols-2 gap-16 items-center z-10">
         {/* Left Content */}
-        <div className="text-center md:text-left">
-          <motion.span
+        <div className="text-center md:text-left space-y-8">
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-amber-500 text-xs tracking-[0.4em] uppercase font-semibold"
+            className="flex items-center gap-3 justify-center md:justify-start"
           >
-            Welcome to my portfolio
-          </motion.span>
+            <span className="h-px w-10 bg-gradient-to-r from-amber-500 to-transparent"></span>
+            <span className="text-amber-500 text-xs tracking-[0.4em] uppercase font-semibold">
+              Welcome to my portfolio
+            </span>
+          </motion.div>
 
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mt-6 text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight"
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Hi, I'm <span className="text-amber-500">Gantabya</span>
-          </motion.h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight">
+              Hi, I'm{" "}
+              <span className="text-gradient bg-gradient-to-r from-amber-500 via-orange-500 to-amber-400 bg-clip-text text-transparent animate-gradient">
+                Gantabya
+              </span>
+            </h1>
+          </motion.div>
 
-          <div className="mt-6 h-10">
+          <motion.div 
+            className="h-12 flex items-center justify-center md:justify-start"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-zinc-300 uppercase tracking-wide">
               {displayText}
+              <span className="inline-block w-1 h-8 bg-amber-500 ml-1 animate-pulse"></span>
             </p>
-          </div>
+          </motion.div>
 
-          <p className="mt-8 text-zinc-400 text-base sm:text-lg max-w-xl leading-relaxed">
+          <motion.p 
+            className="text-zinc-400 text-base sm:text-lg max-w-xl leading-relaxed mx-auto md:mx-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
             I build modern, responsive and scalable web applications using the
-            MERN stack with strong focus on clean UI and performance.
-          </p>
+            MERN stack with strong focus on{" "}
+            <span className="text-amber-500 font-semibold">clean UI</span> and{" "}
+            <span className="text-amber-500 font-semibold">performance</span>.
+          </motion.p>
 
-          <div className="mt-10 flex flex-wrap gap-5 justify-center md:justify-start">
+          <motion.div 
+            className="flex flex-wrap gap-5 justify-center md:justify-start"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
             <a
               href="/resume/Gantabya_Kumar_Bayda_Resume.pdf"
               download
-              className="flex items-center gap-2 px-6 py-2 rounded-lg text-amber-500 hover:scale-105 transition font-semibold border border-amber-500 bg-black"
+              className="group relative flex items-center gap-3 px-8 py-4 rounded-xl text-black font-bold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] overflow-hidden"
             >
-              Resume
-              <span>
-                <FiDownload size={18} />
-              </span>
+              <span className="relative z-10 uppercase tracking-wider text-sm">Download Resume</span>
+              <FiDownload className="relative z-10" size={18} />
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </a>
 
+            <a
+              href="#contact"
+              className="group flex items-center gap-3 px-8 py-4 border-2 border-amber-500/30 text-white text-sm font-bold uppercase tracking-wider rounded-xl hover:bg-amber-500/10 hover:border-amber-500 transition-all duration-300"
+            >
+              Let's Talk
+              <FiArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+            </a>
+          </motion.div>
+
+          <motion.div
+            className="flex gap-6 justify-center md:justify-start pt-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1 }}
+          >
             <a
               href="https://github.com/devgantabya"
               target="_blank"
               rel="noreferrer"
-              className="px-7 py-2 flex items-center border border-zinc-700 text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-zinc-900 transition-all"
+              className="text-zinc-500 hover:text-amber-500 transition-colors text-xs uppercase tracking-[0.2em] font-semibold"
             >
               GitHub
             </a>
-
+            <span className="text-zinc-800">|</span>
             <a
               href="https://www.linkedin.com/in/devgantabya/"
               target="_blank"
               rel="noreferrer"
-              className="px-7 py-2 flex items-center border border-zinc-700 text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-zinc-900 transition-all"
+              className="text-zinc-500 hover:text-amber-500 transition-colors text-xs uppercase tracking-[0.2em] font-semibold"
             >
               LinkedIn
             </a>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Right Image */}
+        {/* Right Image - Enhanced */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="flex justify-center md:justify-end"
         >
-          <div className="relative w-[210px] h-[210px] sm:w-[280px] sm:h-[280px] lg:w-[360px] lg:h-[360px] group">
-            {/* Soft glow background */}
-            <div className="absolute inset-0 rounded-full blur-3xl opacity-40 bg-gradient-to-r from-blue-500 via-purple-500 to-amber-400"></div>
+          <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px] group">
+            {/* Multi-layered glow effects */}
+            <div className="absolute inset-0 rounded-full blur-3xl opacity-50 bg-gradient-to-r from-blue-500 via-purple-500 to-amber-400 animate-pulse"></div>
+            <div className="absolute inset-10 rounded-full blur-2xl opacity-60 bg-gradient-to-br from-amber-400 to-orange-500"></div>
 
-            {/* Rotating gradient ring */}
+            {/* Rotating gradient ring with enhanced animation */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{
@@ -126,26 +178,71 @@ const Banner = () => {
                 ease: "linear",
                 repeat: Infinity,
               }}
-              className="absolute inset-0 rounded-full p-[4px]"
+              className="absolute inset-0 rounded-full p-[4px] opacity-90"
             >
-              <div className="w-full h-full rounded-full bg-[conic-gradient(#3b82f6,#8b5cf6,#22c55e,#f59e0b,#ef4444,#3b82f6)]"></div>
+              <div className="w-full h-full rounded-full bg-[conic-gradient(#3b82f6,#8b5cf6,#a855f7,#f59e0b,#ef4444,#ec4899,#3b82f6)]"></div>
             </motion.div>
 
-            {/* Inner image container */}
-            <div className="absolute inset-[10px] rounded-full bg-[#070707] p-2 flex items-center justify-center shadow-2xl">
-              <img
-                src={myImage}
-                alt="Gantabya"
-                className="w-full h-full object-cover rounded-full transition-transform duration-500"
-              />
+            {/* Secondary counter-rotating ring */}
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{
+                duration: 15,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+              className="absolute inset-3 rounded-full p-[2px] opacity-40"
+            >
+              <div className="w-full h-full rounded-full bg-[conic-gradient(transparent,#f59e0b,transparent)]"></div>
+            </motion.div>
+
+            {/* Inner image container with glass effect */}
+            <div className="absolute inset-[12px] rounded-full bg-gradient-to-br from-zinc-900 to-black p-3 flex items-center justify-center shadow-2xl ring-1 ring-white/10">
+              <div className="relative w-full h-full rounded-full overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                <img
+                  src={myImage}
+                  alt="Gantabya"
+                  className="w-full h-full object-cover"
+                />
+                {/* Shimmer effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </div>
             </div>
 
-            {/* Status Badge */}
-            <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md border border-amber-500/40 px-4 py-2 rounded-full">
-              <span className="text-[10px] text-amber-500 font-bold uppercase tracking-widest">
-                Available for Work
-              </span>
-            </div>
+            {/* Floating particles */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-4 -right-4 w-3 h-3 rounded-full bg-amber-500 blur-sm"
+            ></motion.div>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="absolute top-1/4 -left-6 w-2 h-2 rounded-full bg-purple-500 blur-sm"
+            ></motion.div>
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-1/4 -right-6 w-2 h-2 rounded-full bg-blue-500 blur-sm"
+            ></motion.div>
+
+            {/* Enhanced Status Badge */}
+            <motion.div 
+              className="absolute -bottom-6 left-1/2 -translate-x-1/2 glass-effect px-6 py-3 rounded-2xl shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+            >
+              <div className="flex items-center gap-3">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+                <span className="text-[11px] text-white font-bold uppercase tracking-widest whitespace-nowrap">
+                  Available for Work
+                </span>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
