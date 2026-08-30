@@ -6,6 +6,7 @@ import { FiDownload, FiArrowRight } from "react-icons/fi";
 const roles = [
   "Full-Stack Developer",
   "Frontend Developer",
+  "Backend Developer",
   "MERN Stack Specialist",
   "WordPress Developer",
 ];
@@ -75,7 +76,7 @@ const Banner = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
               Hi, I'm{" "}
               <span className="text-gradient bg-gradient-to-r from-amber-500 via-orange-500 to-amber-400 bg-clip-text text-transparent animate-gradient">
                 Gantabya
@@ -225,24 +226,6 @@ const Banner = () => {
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               className="absolute bottom-1/4 -right-6 w-2 h-2 rounded-full bg-blue-500 blur-sm"
             ></motion.div>
-
-            {/* Enhanced Status Badge */}
-            <motion.div 
-              className="absolute -bottom-6 left-1/2 -translate-x-1/2 glass-effect px-6 py-3 rounded-2xl shadow-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <div className="flex items-center gap-3">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                </span>
-                <span className="text-[11px] text-white font-bold uppercase tracking-widest whitespace-nowrap">
-                  Available for Work
-                </span>
-              </div>
-            </motion.div>
           </div>
         </motion.div>
       </div>

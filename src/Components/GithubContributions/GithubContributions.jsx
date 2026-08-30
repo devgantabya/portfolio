@@ -31,7 +31,7 @@ const GithubContributions = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-black text-white tracking-tighter"
+            className="text-3xl md:text-4xl font-black text-white tracking-tighter"
           >
             GITHUB{" "}
             <span className="text-zinc-500 italic font-serif">

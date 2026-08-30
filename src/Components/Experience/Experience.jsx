@@ -64,7 +64,7 @@ const Experience = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-black text-white tracking-tighter"
+              className="text-3xl md:text-4xl font-black text-white tracking-tighter"
             >
               WORK{" "}
               <span className="text-gradient bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent italic font-serif">
