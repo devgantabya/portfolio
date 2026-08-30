@@ -126,7 +126,7 @@ const About = () => {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-8">
+          <h2 className="text-3xl md:text-4xl font-black text-white leading-tight mb-8">
             Engineering Digital <br />
             <span className="text-gradient bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent italic font-serif">Solutions.</span>
           </h2>

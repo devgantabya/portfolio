@@ -94,7 +94,7 @@ const Projects = () => {
                 Selected Works
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter">
               FEATURED{" "}
               <span className="text-gradient bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent italic font-serif">PROJECTS.</span>
             </h2>

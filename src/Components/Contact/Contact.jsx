@@ -18,31 +18,60 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
+    
+    // Send email to you (the owner)
     emailjs
       .sendForm(
-        "service_r5so42h",
-        "template_v77csrd",
+        "service_tnf9mfq",
+        "template_1qdf3ln",
         form.current,
-        "b3KakpHFn61erU9C0",
+        "upXGS-lxr3vSwew5l"
       )
       .then(
-        () => {
+        (result) => {
+          
+          // Send auto-reply to the user
+          const formData = {
+            to_name: form.current.from_name.value,
+            to_email: form.current.from_email.value,
+            from_name: "Gantabya Kumar Bayda",
+            original_message: form.current.message.value,
+          };
+
+          // Send auto-reply email using emailjs.send
+          emailjs
+            .send(
+              "service_tnf9mfq",
+              "template_p50870o", // You'll need to create this template in EmailJS
+              formData,
+              "upXGS-lxr3vSwew5l"
+            )
+            .then(
+              (autoReplyResult) => {
+              },
+              (autoReplyError) => {
+                console.error("Auto-reply failed:", autoReplyError.text);
+                // Don't show error to user if auto-reply fails
+              }
+            );
+
           setStatus({
             type: "success",
-            message: "Message sent! I'll get back to you soon.",
+            message: "Message sent successfully! Check your email (including spam/junk folder) for confirmation.",
           });
           form.current.reset();
           setLoading(false);
           setTimeout(() => setStatus(null), 5000);
         },
-        () => {
+        (error) => {
+          console.error("Email send error:", error.text);
           setStatus({
             type: "error",
-            message: "Failed to send. Please use WhatsApp.",
+            message: "Failed to send. Please try again or use WhatsApp.",
           });
           setLoading(false);
           setTimeout(() => setStatus(null), 5000);
-        },
+        }
       );
   };
 
@@ -65,26 +94,11 @@ const Contact = () => {
                 Contact
               </span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter">
               LET'S START A{" "}
               <span className="text-gradient bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent italic font-serif">PROJECT.</span>
             </h2>
           </div>
-
-          <motion.div 
-            className="glass-effect px-6 py-3 rounded-2xl flex items-center gap-3 border border-emerald-500/20"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-            </span>
-            <span className="text-[10px] uppercase tracking-widest font-bold text-emerald-500">
-              Available for hire
-            </span>
-          </motion.div>
         </div>
 
         <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
