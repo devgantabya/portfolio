@@ -27,9 +27,9 @@ const projects = [
     description: "Hotel booking platform backend",
   },
   {
-    name: "RiseTogetherBD",
+    name: "Rise Together",
     role: "Full Stack Developer",
-    url: "https://risetogether.com.bd/",
+    url: "https://www.risetogetherbd.com/",
     description: "Company website - Full stack development",
   },
 ];
@@ -184,21 +184,6 @@ const Experience = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-
-        {/* Skills Highlight */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="inline-flex items-center gap-3 glass-effect px-6 py-3 rounded-2xl border border-white/5">
-            <span className="h-2 w-2 rounded-full bg-amber-500"></span>
-            <p className="text-zinc-600 text-xs uppercase tracking-[0.5em] font-bold">
-              Gaining Real-World Experience
-            </p>
           </div>
         </motion.div>
       </div>
