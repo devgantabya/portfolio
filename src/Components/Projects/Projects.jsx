@@ -5,19 +5,58 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 const projectList = [
   {
     id: 1,
-    name: "Tuitron",
-    category: "Full Stack",
-    tech: ["React.js", "Tailwind", "Firebase", "DaisyUI"],
-    image: "/projects/greennest-store-screenshot.png",
-    frontend: "https://github.com/devgantabya/tuitron-client.git",
-    backend: "https://github.com/devgantabya/tuitron-server.git",
-    live: "https://tutron-89ff4.web.app/",
-    description: "A tuition management platform for Students & Teachers.",
+    name: "Rise Together",
+    tech: ["NestJS", "NextJS", "ExpressJS", "Typescript", "PostgreSQL", "Prisma", "Zod", "CI/CD"],
+    image: "/projects/risetogether.png",
+    frontend: "",
+    backend: "",
+    live: "https://www.risetogetherbd.com/",
+    description: "Company website. Worked as a Full Stack Developer.",
+  },
+  {
+    id: 1,
+    name: "Feletrip",
+    tech: ["ExpressJS", "Typescript", "PostgreSQL", "Prisma", "Zod", "CI/CD", "Swagger"],
+    image: "/projects/feletrip.png",
+    frontend: "",
+    backend: "",
+    live: "https://www.feletrip.com/",
+    description: "A travel booking system. Worked as a Backend Developer.",
   },
   {
     id: 2,
+    name: "Biponiq",
+    tech: ["ExpressJS", "Typescript", "PostgreSQL", "Prisma", "Redis", "Zod", "CI/CD", "Swagger", "AI Chatbot"],
+    image: "/projects/biponiq.png",
+    frontend: "",
+    backend: "",
+    live: "https://biponiq.com/",
+    description: "An E-commerce platform. Worked as a Backend Developer.",
+  },
+  {
+    id: 3,
+    name: "Uparzo",
+    tech: ["ExpressJS", "Typescript", "PostgreSQL", "Prisma", "Redis", "Zod", "CI/CD", "Swagger", "Docker"],
+    image: "/projects/uparzo.png",
+    frontend: "",
+    backend: "",
+    live: "https://uparzo.com/",
+    description: "An E-commerce platform. Worked as a Backend Developer.",
+  },
+  {
+    id: 3,
+    name: "Hero App Store",
+    tech: ["React.js", "Recharts", "Node.js"],
+    image: "/projects/hero-app-screenshot.png",
+    frontend: "https://github.com/devgantabya/Hero-App-Store.git",
+    backend: "https://github.com/devgantabya/Hero-App-Store.git",
+    live: "https://my-hero-app-store.netlify.app/",
+    description:
+      "Data-driven dashboard with interactive charts and high-performance filtering.",
+  },
+  {
+    id: 4,
     name: "GreenNest Store",
-    category: "Frontend",
     tech: ["React.js", "Tailwind", "Firebase", "DaisyUI"],
     image: "/projects/greennest-store-screenshot.png",
     frontend: "https://github.com/devgantabya/greennest-store.git",
@@ -26,55 +65,10 @@ const projectList = [
     description:
       "A premium e-commerce experience for plant enthusiasts with seamless Firebase integration.",
   },
-  {
-    id: 3,
-    name: "ItemFlow Management",
-    category: "Full Stack",
-    tech: ["Next.js", "Node.js", "MongoDB", "JWT"],
-    image: "/projects/Item-flow-screenshot.png",
-    frontend: "https://github.com/devgantabya/Product-Management-Client.git",
-    backend: "https://github.com/devgantabya/Product-Management-Server.git",
-    live: "https://product-management-client-fyp4.vercel.app/",
-    description:
-      "Enterprise-grade product tracking system featuring secure authentication and real-time CRUD.",
-  },
-  {
-    id: 4,
-    name: "Hero App Store",
-    category: "Frontend",
-    tech: ["React.js", "Recharts", "Node.js"],
-    image: "/projects/hero-app-screenshot.png",
-    frontend: "https://github.com/devgantabya/Hero-App-Store.git",
-    backend: "https://github.com/devgantabya/Hero-App-Store.git",
-    live: "https://my-hero-app-store.netlify.app/",
-    description:
-      "Data-driven dashboard with interactive charts and high-performance filtering.",
-  },
-  {
-    id: 5,
-    name: "Hero App Store",
-    category: "Frontend",
-    tech: ["React.js", "Recharts", "Node.js"],
-    image: "/projects/hero-app-screenshot.png",
-    frontend: "https://github.com/devgantabya/Hero-App-Store.git",
-    backend: "https://github.com/devgantabya/Hero-App-Store.git",
-    live: "https://my-hero-app-store.netlify.app/",
-    description:
-      "Data-driven dashboard with interactive charts and high-performance filtering.",
-  },
 ];
 
-const categories = ["All", "Frontend", "Full Stack", "Backend"];
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProjects = useMemo(() => {
-    return activeCategory === "All"
-      ? projectList
-      : projectList.filter((p) => p.category === activeCategory);
-  }, [activeCategory]);
-
   return (
     <section
       id="projects"
@@ -99,34 +93,12 @@ const Projects = () => {
               <span className="text-gradient bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent italic font-serif">PROJECTS.</span>
             </h2>
           </div>
-
-          {/* Enhanced Filter with active indicator */}
-          <div className="flex gap-8 overflow-x-auto pb-2 scrollbar-hide">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`relative text-[10px] uppercase tracking-[0.3em] font-bold transition-all pb-2 ${
-                  activeCategory === cat
-                    ? "text-amber-500"
-                    : "text-zinc-600 hover:text-zinc-300"
-                }`}
-              >
-                {cat}
-                <span
-                  className={`absolute -bottom-0 left-0 h-[2px] bg-amber-500 transition-all duration-300 ${
-                    activeCategory === cat ? "w-full" : "w-0"
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Enhanced Projects Grid */}
         <motion.div layout className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
+            {projectList.map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
@@ -172,13 +144,6 @@ const Projects = () => {
                     >
                       <FaGithub size={22} />
                     </motion.a>
-                  </div>
-
-                  {/* Category badge */}
-                  <div className="absolute top-4 right-4 glass-effect px-4 py-2 rounded-xl border border-amber-500/30 z-10">
-                    <span className="text-[9px] text-amber-500 font-mono uppercase tracking-widest font-bold">
-                      {project.category}
-                    </span>
                   </div>
                 </div>
 
